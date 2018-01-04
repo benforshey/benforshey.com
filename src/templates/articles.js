@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 const Main = styled.main`
@@ -21,6 +22,18 @@ function renderArticleList (context) {
 const CraftListTemplate = ({ pathContext }) => {
   return (
     <Main>
+      <Helmet>
+        <title>Articles | Ben Forshey</title>
+        <script type='application/ld+json'>{`
+          {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.benforshey.com/articles",
+            "name": "Articles | Ben Forshey",
+            "description": "Lessons learned, insights, and more by web developer Ben Forshey."
+          }
+        `}</script>
+      </Helmet>
       {renderArticleList(pathContext)}
     </Main>
   )

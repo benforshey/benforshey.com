@@ -28,17 +28,6 @@ const TemplateWrapper = ({ children, data }) => {
         <link rel='manifest' href='/manifest.json' />
         <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#0a5f71' />
         <meta name='theme-color' content='#0a5f71' />
-        <script type='application/ld+json'>{`
-          {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "url": "https://www.benforshey.com",
-            "name": "Ben Forshey&rsquo;s Site",
-            "description": "",
-            "image": ""
-          }
-        `}</script>
-
       </Helmet>
       <Header
         links={[

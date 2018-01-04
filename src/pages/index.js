@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 import { rakishRotation, fadePopIn } from '../css/keyframes'
@@ -45,9 +46,22 @@ const ImageContainer = styled.div`
 `
 
 const IndexPage = ({ data: { about } }) => {
+  console.log(about)
   return (
     <Main>
-      <HelmetDatoCms seo={about.seo} />
+      <HelmetDatoCms seo={about.seoMetaTags} />
+      <Helmet>
+        <script type='application/ld+json'>{`
+          {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.benforshey.com/",
+            "name": "${about.seo.title} | Ben Forshey",
+            "description": "${about.seo.description}",
+            "image": "${about.seo.image.url}"
+          }
+        `}</script>
+      </Helmet>
       <ImageContainer>
         <Image src={about.img.sizes.src} srcset={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
       </ImageContainer>
@@ -71,7 +85,15 @@ export const query = graphql`
 query IndexPageQuery {
   about: datoCmsAboutPage {
 
-    seo: seoMetaTags {
+    seo {
+      title
+      description
+      image {
+        url
+      }
+    }
+
+    seoMetaTags {
       ...GatsbyDatoCmsSeoMetaTags
     }
 

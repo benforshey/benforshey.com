@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 
 import 'typeface-inconsolata'
-// import '../prism-themes/a11y-dark.css'
 import '../prism-themes/oceanic-next.css'
 
 const Main = styled.main`
@@ -16,9 +17,22 @@ const Main = styled.main`
 
 const ArticleTemplate = ({ data, pathContext }) => {
   const content = data.datoCmsArticle
-
+  console.log(content)
   return (
     <Main>
+      <HelmetDatoCms seo={content.seoMetaTags} />
+      <Helmet>
+        <script type='application/ld+json'>{`
+          {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://www.benforshey.com/",
+            "name": "${content.seo.title} | Ben Forshey",
+            "description": "${content.seo.description}",
+            "image": "${content.seo.image.url}"
+          }
+        `}</script>
+      </Helmet>
       <article>
         <h1>{content.title}</h1>
         <span>{content.updatedAt}</span>
@@ -44,6 +58,19 @@ export default ArticleTemplate
 export const query = graphql`
   query ArticleQueyr($slug: String!) {
     datoCmsArticle(slug: {eq: $slug}) {
+      seo {
+        title
+        description
+        image {
+          url
+
+        }
+      }
+
+      seoMetaTags {
+        ...GatsbyDatoCmsSeoMetaTags
+      }
+
       title
       updatedAt(formatString: "MMMM Do, YYYY")
       body: bodyNode {

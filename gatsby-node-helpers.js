@@ -15,7 +15,6 @@ exports.createArticleListPage = function createArticleListPage (
   createPage,
   categoryGroup
 ) {
-  console.log('categoryGroup:', categoryGroup)
   return categoryGroup
   .map((group, index, groups) => {
     const pageIndex = index === 0 ? `` : `${index + 1}/`

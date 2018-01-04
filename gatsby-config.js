@@ -9,6 +9,16 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-plugin-purify-css`,
+      options: {
+        styledId: `gatsby-inlined-css`,
+        purifyOptions: {
+          info: true,
+          minify: true
+        }
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -34,6 +44,36 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATOCMS
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-85805713-3',
+        anonymize: false
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Portfolio | Ben Forshey',
+        short_name: 'Ben Forshey',
+        start_url: '/',
+        theme_color: '#0a5f71',
+        background_color: '#0a5f71',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: `/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`
+          },
+          {
+            src: `/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`
+          }
+        ]
       }
     }
   ]

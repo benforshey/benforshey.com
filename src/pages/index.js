@@ -1,6 +1,4 @@
 import React from 'react'
-// import Link from 'gatsby-link'
-// import Image from 'gatsby-image'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 import { rakishRotation, fadePopIn } from '../css/keyframes'

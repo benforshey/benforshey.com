@@ -14,7 +14,7 @@ const ProjectsPage = ({ data: { allDatoCmsProject: {edges} } }) => {
             <dt key={edge.node.link}>
               <a href={edge.node.link} target='_blank' rel='noopener noreferrer'>{edge.node.title}</a>
             </dt>,
-            <dd dangerouslySetInnerHTML={{
+            <dd key={edge.node.title} dangerouslySetInnerHTML={{
               __html: edge.node.descriptionNode.childMarkdownRemark.html}}
             />
           ]

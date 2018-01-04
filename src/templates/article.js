@@ -2,12 +2,15 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import 'typeface-ubuntu-mono'
-import '../prism-themes/a11y-dark.css'
+import 'typeface-inconsolata'
+// import '../prism-themes/a11y-dark.css'
+import '../prism-themes/oceanic-next.css'
 
 const Main = styled.main`
-  code {
-    font-family: 'Ubuntu Mono', monospace;
+  code,
+  pre {
+    font-family: 'Inconsolata', monospace;
+    font-size: .875em;
   }
 `
 
@@ -19,7 +22,9 @@ const ArticleTemplate = ({ data, pathContext }) => {
       <article>
         <h1>{content.title}</h1>
         <span>{content.updatedAt}</span>
-        <div dangerouslySetInnerHTML={{__html: content.body.childMarkdownRemark.html}} />
+        <div dangerouslySetInnerHTML={{
+          __html: content.body.childMarkdownRemark.html
+        }} />
         <div>
           <ul>
             {content.related.map(item =>

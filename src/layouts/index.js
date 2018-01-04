@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -22,6 +21,13 @@ const TemplateWrapper = ({ children, data }) => {
     <Site>
       <Helmet>
         <html lang={data.datoCmsSite.locale} />
+        <title>{data.datoCmsSite.globalSeo.siteName}</title>
+        <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+        <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+        <link rel='manifest' href='/manifest.json' />
+        <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#0a5f71' />
+        <meta name='theme-color' content='#0a5f71' />
         <script type='application/ld+json'>{`
           {
             "@context": "http://schema.org",
@@ -34,9 +40,6 @@ const TemplateWrapper = ({ children, data }) => {
         `}</script>
 
       </Helmet>
-      <HelmetDatoCms
-        favicon={data.datoCmsSite.faviconMetaTags}
-      />
       <Header
         links={[
           {href: '/', name: 'about'},
@@ -62,9 +65,6 @@ query LayoutIndex {
     locale
     globalSeo {
       siteName
-    }
-    faviconMetaTags {
-      ...GatsbyDatoCmsFaviconMetaTags
     }
   }
 }

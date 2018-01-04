@@ -1,0 +1,85 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    font-size: 1em;
+    /* Canary custom property. */
+    --custom: inherit;
+    --theme__color--neutral-dark: hsl(144, 7%, 13%);
+    --theme__color--neutral-light: hsl(65, 43%, 95%);
+    --theme__color--primary: hsl(190, 84%, 24%);
+    --theme__color--secondary: hsl(39, 100%, 63%);
+    --theme__color--tertiary: hsl(152, 37%, 46%);
+}
+
+body {
+    background: hsla(65, 43%, 95%, .2);
+    box-sizing: border-box;
+    color: hsl(144, 7%, 13%);
+    font-family: 'Spectral', serif;
+    font-size: calc(.75rem + 1vw);
+    font-weight: 400;
+    line-height: 1.25;
+    min-height: 100vh;
+    word-spacing: 0px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: hsl(190, 84%, 24%);
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
+    font-size: 2.369em;
+    font-weight: 600;
+    line-height: 1;
+    margin: 1.5em 0 .25em;
+}
+
+h2 {
+    font-size: 1.777em;
+}
+
+h3 {
+    font-size: 1.333em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* @supports (--custom: inherit) {
+  body {
+    color: var(--theme__color--neutral-dark);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--theme__color--primary);
+  }
+} */
+
+@media screen and (min-width: 25em) {
+    body {
+      line-height: 1.30;
+    }
+}
+
+@media screen and (min-width: 37.5em) {
+    body {
+      line-height: 1.35;
+    }
+}
+
+@media screen and (min-width: 50em) {
+    body {
+      line-height: 1.4;
+    }
+}

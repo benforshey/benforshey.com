@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Times Now Roman | Integris Web</title>
+	<meta property="description" content="The time of day in roman numerals. Some might call it a clock.">
+	<link href="https://fonts.googleapis.com/css?family=Tinos:400,700" rel="stylesheet">
+	<link rel="manifest" href="https://app.integrisweb.com/clocks/roman/manifest.json">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://app.integrisweb.com/clocks/roman/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="https://app.integrisweb.com/clocks/roman/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="https://app.integrisweb.com/clocks/roman/favicon-16x16.png" sizes="16x16">
+	<link rel="mask-icon" href="https://app.integrisweb.com/clocks/roman/safari-pinned-tab.svg" color="#1282a2">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="Roman">
+	<meta name="apple-mobile-web-app-title" content="Roman">
+	<meta name="theme-color" content="#1282A2">
+	<meta name="msapplication-navbutton-color" content="#1282A2">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="msapplication-starturl" content="/">
+	<meta property="og:title" content="Times Now Roman">
+	<meta property="og:description" content="The time of day in roman numerals. Some might call it a clock.">
+	<meta property="og:image" content="https://app.integrisweb.com/clocks/roman/android-chrome-384x384.png">
+	<meta property="og:url" content="https://app.integrisweb.com/clocks/roman/">
+	<meta name="twitter:card" content="summary">
+	<meta property="og:site_name" content="Times Now Roman | Integris Web">
+	<meta name="twitter:image:alt" content="Roman Numeral Ten">
+	<meta property="fb:app_id" content="1689885554645216" />
+	<meta name="twitter:site" content="@benforshey">
+	<style>
+		body{background-color:#FEFCFB}.container{-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#1282A2;display:-webkit-box;display:-ms-flexbox;display:flex;font-family:'Tinos', serif;font-size:calc(1rem + 7vw);-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-top:10%}p{margin-top:1rem;margin-bottom:1.5rem}.half,.watch{color:#3A3835;text-align:center;-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;font-size:calc(1rem + 1vw);font-weight:700}.label{color:#CCC8C1;padding-right:1%;text-align:right;-webkit-box-flex:1;-ms-flex:1 1 0;flex:1 1 0}.time{padding-left:1%;-webkit-box-flex:1;-ms-flex:1 1 0;flex:1 1 0}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="half">
+			<p id="half"><span id=""></span></p>
+		</div>
+		<div class="label">
+			<p>hora</p>
+			<p>min&umacr;ta</p>
+			<p>secundus</p>
+		</div>
+		<div class="time">
+			<p id="hours"></p>
+			<p id="minutes"></p>
+			<p id="seconds"></p>
+		</div>
+		<div class="watch">
+			<p id="watch"></p>
+		</div>
+	</div>
+	<script>
+		"use strict";"serviceWorker"in navigator&&navigator.serviceWorker.register("./service-worker.js").then(function(e){console.log("ServiceWorker registration successful with scope: "+e.scope)}).catch(function(e){console.log("ServiceWorker registration failed: "+e)});var time={hour:"",minute:"",second:"",watch:"",half:"",setHour:function(){var e=(new Date).getHours();0===e?e+=12:e>12&&(e-=12),this.hour=this.convertToRomanNumerals(e)},setMinute:function(){var e=(new Date).getMinutes();this.minute=this.convertToRomanNumerals(e)},setSecond:function(){var e=(new Date).getSeconds();this.second=this.convertToRomanNumerals(e)},setWatch:function(){var e=(new Date).getHours();this.watch=e>=18&&20>=e?"prima vigilia":e>=21&&23>=e?"secunda vigilia":e>=0&&2>=e?"tertia vigilia":e>=3&&5>=e?"quarta vigilia":""},setHalf:function(){var e=(new Date).getHours();this.half=e>=0&&11>=e?"prima diei hora":"prima noctis hora"},convertToRomanNumerals:function(e){function t(e){return e>=50?(i+="L",t(e-50)):e>=40?(i+="XL",t(e-40)):e>=10?(i+="X",t(e-10)):e>=9?(i+="IX",t(e-9)):e>=5?(i+="V",t(e-5)):e>=4?(i+="IV",t(e-4)):e>=1?(i+="I",t(e-1)):i}var i="";return t(e)},writeTime:function(){var e=document.getElementById("hours"),t=document.getElementById("minutes"),i=document.getElementById("seconds"),n=document.getElementById("half"),o=document.getElementById("watch");e.innerText=this.hour||"nulla",t.innerText=this.minute||"nulla",i.innerText=this.second||"nulla",n.innerText=this.half,o.innerText=this.watch},tickTock:function(){var e=this;return this.setHour(),this.setMinute(),this.setSecond(),this.setWatch(),this.setHalf(),this.writeTime(),window.setTimeout(function(){e.tickTock()},1e3)}};time.tickTock();
+	</script>
+</body>
+</html>

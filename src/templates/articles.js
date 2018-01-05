@@ -4,12 +4,12 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 const Main = styled.main`
-  ${''}
+grid-column: content;
+grid-row: content;
 `
 // TODO: create actual pagination links
 
 function renderArticleList (context) {
-  console.log('context:', context)
   return context.group.map(({ node }) => {
     return (
       <Link to={`${context.slugPrefix}${node.slug}`} key={node.slug}>
@@ -28,7 +28,7 @@ const CraftListTemplate = ({ pathContext }) => {
           {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "url": "https://www.benforshey.com/articles",
+            "url": "https://www.benforshey.com/articles/",
             "name": "Articles | Ben Forshey",
             "description": "Lessons learned, insights, and more by web developer Ben Forshey."
           }

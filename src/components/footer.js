@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const Footer = styled.footer`
-
+grid-column: content;
+grid-row: footer;
 `
 
 const FooterComponent = () => (

@@ -12,8 +12,12 @@ import 'normalize.css'
 import './index.css'
 
 const Site = styled.div`
-  max-width: 64rem;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: [gutter-start] 1vw [content-start] repeat(10, 1fr) [content-end] 1vw [gutter-end];
+grid-template-rows: [header-start] 4em [header-end content-start] auto [content-end footer-start] 6em [footer-end];
+grid-gap: 0 1vw;
+max-width: 67.5rem;
+margin: 0 auto;
 `
 
 const TemplateWrapper = ({ children, data }) => {
@@ -37,7 +41,7 @@ const TemplateWrapper = ({ children, data }) => {
         ]}
       />
       {children()}
-      <Footer />
+      {/* <Footer /> */}
     </Site>
   )
 }

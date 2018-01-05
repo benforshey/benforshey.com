@@ -8,16 +8,19 @@ import 'typeface-inconsolata'
 import '../prism-themes/oceanic-next.css'
 
 const Main = styled.main`
-  code,
-  pre {
-    font-family: 'Inconsolata', monospace;
-    font-size: .875em;
-  }
+grid-column: content;
+grid-row: content;
+
+code,
+pre {
+  font-family: 'Inconsolata', monospace;
+  font-size: .875em;
+}
 `
 
 const ArticleTemplate = ({ data, pathContext }) => {
   const content = data.datoCmsArticle
-  console.log(content)
+
   return (
     <Main>
       <HelmetDatoCms seo={content.seoMetaTags} />

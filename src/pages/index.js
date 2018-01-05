@@ -5,48 +5,81 @@ import styled from 'styled-components'
 import { rakishRotation, fadePopIn } from '../css/keyframes'
 
 const Main = styled.main`
+grid-column: content;
+grid-row: content;
+`
+const Bio = styled.section`
+${'' /* margin-top: 2.5vw; */}
+margin-top: 1.5em;
 
+&::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+h2 {
+  margin-top: 0;
+}
 `
 
 const Image = styled.img`
-  animation: .3s cubic-bezier(0, 1, 1, 1.25) .3s forwards ${rakishRotation};
-  width: 100%;
+animation: .3s cubic-bezier(.25, .25, 0, 1.5) .2s forwards ${rakishRotation};
+width: 100%;
 `
 
 const ImageContainer = styled.div`
-  animation: .3s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231f2321' fill-opacity='0.25'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0;
-  transform: scale(.8);
-  padding: 3vw;
+animation: .2s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
+background-image: linear-gradient(45deg, hsla(39, 100%, 63%, .4), hsla(152, 37%, 46%, .4));
+clip-path: circle(50% at 50% 50%);
+float: left;
+height: calc(5em + 15vw);
+margin: 0 2.5vw 0 -.25em;
+opacity: 0;
+padding: 1vw;
+position: relative;
+shape-outside: circle();
+transform: scale(.8);
+width: calc(5em + 15vw);
+max-width: calc(21.875rem + 1vw);
+max-height: calc(21.875rem + 1vw);
+`
+
+const Now = styled.article`
+display: grid;
+grid-gap: 0 2.5vw;
+grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+grid-template-rows: auto;
+
+ul {
+  list-style: none;
+}
+
+li {
   position: relative;
-  width: 15em;
-  height: 15em;
+}
 
-  &:hover {
-    background-image: none;
-  }
+li::before {
+  content: '–';
+  position: absolute;
+    left: -1em;
+}
 
-  &::before {
-    content: '';
-    background-image: linear-gradient(45deg, hsla(39, 100%, 63%, .3), hsla(152, 37%, 46%, .3));
-    opacity: 0;
-    position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-    transition: opacity .2s ease-out;
-    z-index: -1;
-  }
+li > p {
+  margin-bottom: 0;
+  font-weight: 400;
+}
+`
 
-  &:hover::before {
-    opacity: 1;
-  }
+const Work = styled.section`
+
+`
+
+const Read = styled.section`
+
 `
 
 const IndexPage = ({ data: { about } }) => {
-  console.log(about)
   return (
     <Main>
       <HelmetDatoCms seo={about.seoMetaTags} />
@@ -62,19 +95,35 @@ const IndexPage = ({ data: { about } }) => {
           }
         `}</script>
       </Helmet>
-      <ImageContainer>
-        <Image src={about.img.sizes.src} srcset={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
-      </ImageContainer>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: about.bio.childMarkdownRemark.html
-        }}
-      />
-      <div
-        dangerouslySetInnerHTML={{
-          __html: about.now.childMarkdownRemark.html
-        }}
-      />
+      <Bio>
+        <ImageContainer>
+          <Image src={about.img.sizes.src} srcSet={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
+        </ImageContainer>
+        <h2>About Me, Professionally</h2>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: about.bio.childMarkdownRemark.html
+          }}
+        />
+      </Bio>
+      <Now>
+        <Work>
+          <h2>What I&rsquo;m Working On</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: about.workNode.childMarkdownRemark.html
+            }}
+          />
+        </Work>
+        <Read>
+          <h2>What I&rsquo;m Reading</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: about.readNode.childMarkdownRemark.html
+            }}
+          />
+        </Read>
+      </Now>
     </Main>
   )
 }
@@ -99,12 +148,11 @@ query IndexPageQuery {
 
     img: headshot {
       alt
-      sizes(maxWidth: 300, imgixParams: {
-        fm: "png",
-        auto: "compress",
-        w: "300",
-        h: "300",
+      sizes(maxWidth: 350, imgixParams: {
+        auto: "compress,enhance,format",
+        colorquant: 8,
         mask: "ellipse"
+        q: 25,
       }) {
         src
         srcSet
@@ -118,11 +166,18 @@ query IndexPageQuery {
       }
     }
 
-    now: nowNode {
+    workNode {
       childMarkdownRemark {
         html
       }
     }
+
+    readNode {
+      childMarkdownRemark {
+        html
+      }
+    }
+
   }
 }
 `

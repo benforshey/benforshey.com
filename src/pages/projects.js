@@ -42,7 +42,7 @@ export default ProjectsPage
 
 export const query = graphql`
 query ProjectsQuery {
-  allDatoCmsProject(sort: {fields: [updatedAt], order: ASC}) {
+  allDatoCmsProject(sort: {fields: [updatedAt], order: DESC}) {
     edges {
       node {
         title

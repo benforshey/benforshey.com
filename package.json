@@ -23,7 +23,6 @@
     "gatsby-transformer-remark": "1.7.26",
     "normalize.css": "7.0.0",
     "react-helmet": "5.2.0",
-    "react-load-script": "0.0.6",
     "styled-components": "2.4.0",
     "typeface-inconsolata": "0.0.44",
     "typeface-source-sans-pro": "0.0.44",

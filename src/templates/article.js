@@ -4,8 +4,6 @@ import Helmet from 'react-helmet'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 
-import Comments from '../components/justComments'
-
 import 'typeface-inconsolata'
 import '../prism-themes/oceanic-next.css'
 
@@ -53,7 +51,6 @@ const ArticleTemplate = ({ data, pathContext }) => {
             )}
           </ul>
         </div>
-        <Comments />
       </article>
     </Main>
   )

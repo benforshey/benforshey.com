@@ -4,13 +4,6 @@
 
 :root {
     font-size: 1em;
-    /* Canary custom property. */
-    --custom: inherit;
-    --theme__color--neutral-dark: hsl(144, 7%, 13%);
-    --theme__color--neutral-light: hsl(65, 43%, 95%);
-    --theme__color--primary: hsl(190, 84%, 24%);
-    --theme__color--secondary: hsl(39, 100%, 63%);
-    --theme__color--tertiary: hsl(152, 37%, 46%);
 }
 
 body {
@@ -53,18 +46,38 @@ p {
     margin-bottom: 1em;
 }
 
-/* @supports (--custom: inherit) {
-  body {
-    color: var(--theme__color--neutral-dark);
-  }
+a {
+    color: hsl(190, 84%, 24%);
+    text-decoration: underline hsla(190, 84%, 24%, .6);
+    text-decoration-skip: ink;
+    position: relative;
+}
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: var(--theme__color--primary);
-  }
-} */
+a:hover,
+a:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+a::before {
+    background: hsla(39, 100%, 63%, .4);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 0;
+    left: 0;
+    transition: max-width .2s ease-out, transform .2s ease-out;
+    z-index: -1;
+    transform: scale(.8);
+}
+
+a:hover::before,
+a:focus::before {
+    max-width: 100%;
+    transform: scale(1);
+}
 
 @media screen and (min-width: 25em) {
     body {

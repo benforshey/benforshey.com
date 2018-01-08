@@ -19,8 +19,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
             title
             slug
-            updatedAt
-            datePublished
+            updatedAt(formatString: "MMM Do, YYYY")
+            datePublished(formatString: "MMM Do, YYYY")
             seo {
               title
               description
@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               childMarkdownRemark {
                 html
                 timeToRead
+                excerpt
               }
             }
           }

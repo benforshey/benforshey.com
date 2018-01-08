@@ -9,7 +9,6 @@ grid-column: content;
 grid-row: content;
 `
 const Bio = styled.section`
-${'' /* margin-top: 2.5vw; */}
 margin-top: 1.5em;
 
 &::after {
@@ -30,13 +29,17 @@ width: 100%;
 
 const ImageContainer = styled.div`
 animation: .2s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
-background-image: linear-gradient(45deg, hsla(39, 100%, 63%, .4), hsla(152, 37%, 46%, .4));
+background-image: linear-gradient(
+  45deg,
+  hsla(152, 37%, 46%, .4),
+  hsla(39, 100%, 63%, .4)
+);
 clip-path: circle(50% at 50% 50%);
 float: left;
 height: calc(5em + 15vw);
 margin: 0 2.5vw 0 -.25em;
 opacity: 0;
-padding: 1vw;
+padding: .5vw;
 position: relative;
 shape-outside: circle();
 transform: scale(.8);
@@ -50,6 +53,7 @@ display: grid;
 grid-gap: 0 2.5vw;
 grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
 grid-template-rows: auto;
+margin-top: 1.5em;
 
 ul {
   list-style: none;

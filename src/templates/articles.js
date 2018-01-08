@@ -9,12 +9,35 @@ grid-row: content;
 `
 // TODO: create actual pagination links
 
+function handleCreatedOrUpdated (created, updated) {
+
+}
+
 function renderArticleList (context) {
+  console.log(context)
   return context.group.map(({ node }) => {
     return (
-      <Link to={`${context.slugPrefix}${node.slug}`} key={node.slug}>
-        <h2>{node.title}</h2>
-      </Link>
+      <article key={node.slug}>
+        <h2>
+          <Link to={`${context.slugPrefix}${node.slug}`}>{node.title}</Link>
+        </h2>
+        <ul>
+          <li>written {node.datePublished}</li>
+          {node.updatedAt !== node.datePublished &&
+          <li>updated {node.updatedAt}</li>
+          }
+          <li>
+            {node.bodyNode.childMarkdownRemark.timeToRead} { node.bodyNode.childMarkdownRemark.timeToRead > 9
+            ? 'minutes'
+            : 'minute'
+            } to read
+          </li>
+        </ul>
+        <div>
+          <p>{node.bodyNode.childMarkdownRemark.excerpt}</p>
+          {<Link to={`${context.slugPrefix}${node.slug}`}>Read this Article</Link>}
+        </div>
+      </article>
     )
   })
 }

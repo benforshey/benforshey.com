@@ -13,9 +13,15 @@ padding: .75em 0;
 position: relative;
 
 &::before {
-  background-image: linear-gradient(to right, hsl(39, 100%, 63%), hsl(152, 37%, 46%));
+  background-image: linear-gradient(
+    to right,
+    hsla(152, 37%, 46%, .4),
+    hsla(39, 100%, 63%, .4),
+    hsla(39, 100%, 63%, .6),
+    hsla(152, 37%, 46%, .6)
+  );
   content: '';
-  height: 6px;
+  height: 4px;
   position: absolute;
     top: 0;
     right: 0;
@@ -45,11 +51,6 @@ li {
   padding: 0 .25em;
   text-align: right;
 }
-
-a {
-  text-decoration: underline red;
-  text-decoration-skip: ink;
-}
 `
 
 class HeaderComponent extends React.Component {
@@ -59,7 +60,13 @@ class HeaderComponent extends React.Component {
         <h1><Link to='/'>Ben Forshey</Link></h1>
         <nav>
           <ul>
-            {this.props.links.map(link => <li key={link.href}><Link to={link.href}>{link.name}</Link></li>)}
+            {this.props.links.map(link =>
+              <li key={link.href}>
+                <Link
+                  to={link.href}
+                >{link.name}</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </Header>

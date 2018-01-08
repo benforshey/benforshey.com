@@ -49,7 +49,9 @@ p {
 a {
     color: hsl(190, 84%, 24%);
     text-decoration: underline hsla(190, 84%, 24%, .6);
+    /* TODO: remove once Chrome 64 gains large market share */
     text-decoration-skip: ink;
+    text-decoration-skip-ink: auto;
     position: relative;
 }
 

@@ -63,7 +63,8 @@ a:focus {
 }
 
 a::before {
-    background: hsla(39, 100%, 63%, .4);
+    /* background: hsla(39, 100%, 63%, .8); */
+    background: hsla(52, 100%, 65%, .6);
     content: '';
     position: absolute;
     width: 100%;

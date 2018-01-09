@@ -29,10 +29,15 @@ width: 100%;
 
 const ImageContainer = styled.div`
 animation: .2s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
+${'' /* background-image: linear-gradient(
+  45deg,
+  hsla(152, 37%, 46%, .8),
+  hsla(39, 100%, 63%, .8)
+); */}
 background-image: linear-gradient(
   45deg,
-  hsla(152, 37%, 46%, .4),
-  hsla(39, 100%, 63%, .4)
+  hsla(152, 37%, 46%, .8),
+  hsla(52, 100%, 65%, .8)
 );
 clip-path: circle(50% at 50% 50%);
 float: left;

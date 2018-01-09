@@ -13,12 +13,20 @@ padding: .75em 0;
 position: relative;
 
 &::before {
+  ${'' /* background-image: linear-gradient(
+    to right,
+    hsla(152, 37%, 46%, .8),
+    hsla(39, 100%, 63%, .8),
+    hsla(39, 100%, 63%, 1),
+    hsla(152, 37%, 46%, 1)
+  ); */}
   background-image: linear-gradient(
     to right,
-    hsla(152, 37%, 46%, .4),
-    hsla(39, 100%, 63%, .4),
-    hsla(39, 100%, 63%, .6),
-    hsla(152, 37%, 46%, .6)
+    ${'' /* hsla(152, 37%, 46%, .8), */}
+    ${'' /* hsla(52, 100%, 65%, .8), */}
+    hsla(152, 37%, 46%, 1),
+    hsla(52, 100%, 65%, 1),
+    hsla(152, 37%, 46%, 1)
   );
   content: '';
   height: 4px;

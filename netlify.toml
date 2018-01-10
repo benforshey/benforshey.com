@@ -1,4 +1,4 @@
 [context.deploy-preview.environment]
-    NODE_VERSION = "lts"
+    NODE_VERSION = "8.9.4"
 [context.production.environment]
-    NODE_VERSION = "lts"
+    NODE_VERSION = "8.9.4"

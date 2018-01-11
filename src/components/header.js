@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import github from '../images/github.svg'
+
 const Header = styled.header`
 align-items: baseline;
 grid-column: content;
@@ -13,17 +15,8 @@ padding: .75em 0;
 position: relative;
 
 &::before {
-  ${'' /* background-image: linear-gradient(
-    to right,
-    hsla(152, 37%, 46%, .8),
-    hsla(39, 100%, 63%, .8),
-    hsla(39, 100%, 63%, 1),
-    hsla(152, 37%, 46%, 1)
-  ); */}
   background-image: linear-gradient(
     to right,
-    ${'' /* hsla(152, 37%, 46%, .8), */}
-    ${'' /* hsla(52, 100%, 65%, .8), */}
     hsla(152, 37%, 46%, 1),
     hsla(52, 100%, 65%, 1),
     hsla(152, 37%, 46%, 1)
@@ -55,9 +48,15 @@ ul {
 }
 
 li {
+  align-items: baseline;
+  justify-content: flex-end;
+  display: flex;
   flex: 1 1 auto;
   padding: 0 .25em;
-  text-align: right;
+
+  img {
+    width: 1.25em;
+  }
 }
 `
 
@@ -75,6 +74,11 @@ class HeaderComponent extends React.Component {
                 >{link.name}</Link>
               </li>
             )}
+            <li>
+              <a href='https://github.com/benforshey' rel='noopener' target='_blank'>
+                <img src={github} alt='github profile of Ben Foshey' />
+              </a>
+            </li>
           </ul>
         </nav>
       </Header>

@@ -4,20 +4,23 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 const Main = styled.main`
-grid-column: content;
+display: grid;
+grid-column: gutter;
 grid-row: content;
+grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
 `
+
+const Article = styled.article`
+grid-column: text;
+`
+
 // TODO: create actual pagination links
-
-function handleCreatedOrUpdated (created, updated) {
-
-}
 
 function renderArticleList (context) {
   console.log(context)
   return context.group.map(({ node }) => {
     return (
-      <article key={node.slug}>
+      <Article key={node.slug}>
         <h2>
           <Link to={`${context.slugPrefix}${node.slug}`}>{node.title}</Link>
         </h2>
@@ -35,9 +38,12 @@ function renderArticleList (context) {
         </ul>
         <div>
           <p>{node.bodyNode.childMarkdownRemark.excerpt}</p>
-          {<Link to={`${context.slugPrefix}${node.slug}`}>Read this Article</Link>}
+          {<Link
+            to={`${context.slugPrefix}${node.slug}`}
+            aria-label={`Continue reading: ${node.title}`}
+          >Read this Article</Link>}
         </div>
-      </article>
+      </Article>
     )
   })
 }

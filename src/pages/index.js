@@ -5,11 +5,15 @@ import styled from 'styled-components'
 import { rakishRotation, fadePopIn } from '../css/keyframes'
 
 const Main = styled.main`
-grid-column: content;
+display: grid;
+grid-column: gutter;
 grid-row: content;
+grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
 `
+
 const Bio = styled.section`
 margin-top: 1.5em;
+grid-column: gutter;
 
 &::after {
   content: '';
@@ -29,11 +33,6 @@ width: 100%;
 
 const ImageContainer = styled.div`
 animation: .2s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
-${'' /* background-image: linear-gradient(
-  45deg,
-  hsla(152, 37%, 46%, .8),
-  hsla(39, 100%, 63%, .8)
-); */}
 background-image: linear-gradient(
   45deg,
   hsla(152, 37%, 46%, .8),
@@ -55,6 +54,7 @@ max-height: calc(21.875rem + 1vw);
 
 const Now = styled.article`
 display: grid;
+grid-column: text;
 grid-gap: 0 2.5vw;
 grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
 grid-template-rows: auto;

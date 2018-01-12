@@ -3,11 +3,16 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 const Main = styled.main`
-grid-column: content;
+display: grid;
+grid-column: gutter;
 grid-row: content;
+grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
+`
+const ProjectList = styled.dl`
+grid-column: text;
 `
 
-const ProjectsPage = ({ data: { allDatoCmsProject: {edges} } }) => {
+const ProjectsPage = ({ data: { allDatoCmsProject: { edges } } }) => {
   return (
     <Main>
       <Helmet>
@@ -22,7 +27,7 @@ const ProjectsPage = ({ data: { allDatoCmsProject: {edges} } }) => {
           }
         `}</script>
       </Helmet>
-      <dl>
+      <ProjectList>
         {edges.map(edge =>
           [
             <dt key={edge.node.link}>
@@ -33,7 +38,7 @@ const ProjectsPage = ({ data: { allDatoCmsProject: {edges} } }) => {
             />
           ]
         )}
-      </dl>
+      </ProjectList>
     </Main>
   )
 }

@@ -7,7 +7,7 @@ import github from '../images/github.svg'
 
 const Header = styled.header`
 align-items: baseline;
-grid-column: content;
+grid-column: gutter;
 grid-row: header;
 display: flex;
 justify-content: space-between;

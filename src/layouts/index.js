@@ -13,11 +13,10 @@ import './index.css'
 
 const Site = styled.div`
 display: grid;
-grid-template-columns: [gutter-start] 1vw [content-start] repeat(10, 1fr) [content-end] 1vw [gutter-end];
+grid-template-columns: [viewport-start] 1vw [gutter-start] 1fr [gutter-end] 1vw [viewport-end];
+${'' /* grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end]; */}
 grid-template-rows: [header-start] 4em [header-end content-start] auto [content-end footer-start] 6em [footer-end];
 grid-gap: 0 1vw;
-max-width: 67.5rem;
-margin: 0 auto;
 `
 
 const TemplateWrapper = ({ children, data }) => {

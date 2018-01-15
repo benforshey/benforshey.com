@@ -13,7 +13,7 @@ grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw
 
 const Bio = styled.section`
 margin-top: 1.5em;
-grid-column: gutter;
+grid-column: text;
 
 &::after {
   content: '';
@@ -56,7 +56,7 @@ const Now = styled.article`
 display: grid;
 grid-column: text;
 grid-gap: 0 2.5vw;
-grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(14.5rem, 1fr));
 grid-template-rows: auto;
 margin-top: 1.5em;
 
@@ -117,7 +117,7 @@ const IndexPage = ({ data: { about } }) => {
       </Bio>
       <Now>
         <Work>
-          <h2>What I&rsquo;m Working On</h2>
+          <h2>What I&rsquo;m Doing</h2>
           <div
             dangerouslySetInnerHTML={{
               __html: about.workNode.childMarkdownRemark.html

@@ -8,7 +8,7 @@ const Main = styled.main`
 display: grid;
 grid-column: gutter;
 grid-row: content;
-grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
+grid-template-columns: [left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 42em) [text-end right-start] minmax(1vw, 1fr) [right-end];
 `
 
 const Bio = styled.section`

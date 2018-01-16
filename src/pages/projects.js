@@ -6,10 +6,14 @@ const Main = styled.main`
 display: grid;
 grid-column: gutter;
 grid-row: content;
-grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
+grid-template-columns: [left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 35em) [text-end right-start] minmax(1vw, 1fr) [right-end];
 `
 const ProjectList = styled.dl`
 grid-column: text;
+
+dt {
+  font-weight: 700;
+}
 `
 
 const ProjectsPage = ({ data: { allDatoCmsProject: { edges } } }) => {
@@ -34,7 +38,8 @@ const ProjectsPage = ({ data: { allDatoCmsProject: { edges } } }) => {
               <a href={edge.node.link} target='_blank' rel='noopener noreferrer'>{edge.node.title}</a>
             </dt>,
             <dd key={edge.node.title} dangerouslySetInnerHTML={{
-              __html: edge.node.descriptionNode.childMarkdownRemark.html}}
+              __html: edge.node.descriptionNode.childMarkdownRemark.html
+            }}
             />
           ]
         )}

@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-import 'typeface-source-sans-pro'
-import 'typeface-spectral'
+import 'typeface-fira-sans'
+import 'typeface-fira-sans-condensed'
 
 import 'normalize.css'
 import './index.css'
@@ -14,7 +14,6 @@ import './index.css'
 const Site = styled.div`
 display: grid;
 grid-template-columns: [viewport-start] 1vw [gutter-start] 1fr [gutter-end] 1vw [viewport-end];
-${'' /* grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end]; */}
 grid-template-rows: [header-start] 4em [header-end content-start] auto [content-end footer-start] 6em [footer-end];
 grid-gap: 0 1vw;
 `
@@ -34,9 +33,9 @@ const TemplateWrapper = ({ children, data }) => {
       </Helmet>
       <Header
         links={[
-          {href: '/', name: 'about'},
-          {href: '/projects/', name: 'projects'},
-          {href: '/articles/', name: 'articles'}
+          { href: '/', name: 'about' },
+          { href: '/projects/', name: 'projects' },
+          { href: '/articles/', name: 'articles' }
         ]}
       />
       {children()}

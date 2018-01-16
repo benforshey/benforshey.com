@@ -4,18 +4,18 @@ import Helmet from 'react-helmet'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 import styled from 'styled-components'
 
-import 'typeface-inconsolata'
+import 'typeface-fira-mono'
 import '../prism-themes/oceanic-next.css'
 
 const Main = styled.main`
 display: grid;
 grid-column: gutter;
 grid-row: content;
-grid-template-columns: [content-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [content-end right-end];
+grid-template-columns: [content-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 35em) [text-end right-start] minmax(1vw, 1fr) [content-end right-end];
 
 code,
 pre {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
   font-size: .875em;
 }
 `
@@ -23,7 +23,7 @@ pre {
 const Article = styled.article`
   display: grid;
   grid-column: content;
-  grid-template-columns: [content-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [content-end right-end];
+  grid-template-columns: [content-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 35em) [text-end right-start] minmax(1vw, 1fr) [content-end right-end];
 `
 
 const Title = styled.h2`
@@ -33,7 +33,7 @@ grid-column: text;
 const MetaData = styled.div`
 color: hsl(133, 8%, 33%);
 font-weight: 300;
-font-family: 'Source Sans Pro', 'Arial', sans-serif;
+font-family: 'Fira Sans', sans-serif;
 grid-column: text;
 margin-bottom: 1em;
 `
@@ -74,7 +74,7 @@ const ArticleTemplate = ({ data, pathContext }) => {
         <MetaData>
           <span>written {content.datePublished}</span>
           {content.datePublished !== content.updatedAt &&
-          <span>; updated {content.updatedAt}</span>
+            <span>; updated {content.updatedAt}</span>
           }
         </MetaData>
         {/* {content.heroImage &&

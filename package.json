@@ -4,12 +4,13 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.9.149",
-    "gatsby-image": "1.0.31",
-    "gatsby-link": "^1.6.32",
+    "gatsby": "^1.9.157",
+    "gatsby-image": "1.0.33",
+    "gatsby-link": "^1.6.34",
     "gatsby-plugin-google-analytics": "1.0.15",
+    "gatsby-plugin-google-tagmanager": "1.0.12",
     "gatsby-plugin-manifest": "1.0.12",
-    "gatsby-plugin-netlify": "1.0.12",
+    "gatsby-plugin-netlify": "1.0.13",
     "gatsby-plugin-offline": "1.0.12",
     "gatsby-plugin-purify-css": "2.2.1",
     "gatsby-plugin-react-helmet": "^2.0.3",
@@ -19,14 +20,14 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-prismjs": "1.2.11",
     "gatsby-remark-smartypants": "1.4.10",
-    "gatsby-source-datocms": "1.0.16",
-    "gatsby-transformer-remark": "1.7.26",
+    "gatsby-source-datocms": "1.0.17",
+    "gatsby-transformer-remark": "1.7.28",
     "normalize.css": "7.0.0",
     "react-helmet": "5.2.0",
     "styled-components": "2.4.0",
-    "typeface-inconsolata": "0.0.44",
-    "typeface-source-sans-pro": "0.0.44",
-    "typeface-spectral": "0.0.44"
+    "typeface-fira-mono": "0.0.44",
+    "typeface-fira-sans": "0.0.52",
+    "typeface-fira-sans-condensed": "0.0.45"
   },
   "keywords": [
     "gatsby"
@@ -41,6 +42,6 @@
   },
   "devDependencies": {
     "dotenv": "4.0.0",
-    "prettier": "^1.9.2"
+    "prettier": "^1.10.2"
   }
 }

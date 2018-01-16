@@ -7,7 +7,7 @@ const Main = styled.main`
 display: grid;
 grid-column: gutter;
 grid-row: content;
-grid-template-columns: [viewport-start] 1vw [gutter-start left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 50rem) [text-end right-start] minmax(1vw, 1fr) [gutter-end right-end] 1vw [viewport-end];
+grid-template-columns: [left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 35em) [text-end right-start] minmax(1vw, 1fr) [right-end];
 `
 
 const Article = styled.article`
@@ -16,7 +16,7 @@ grid-column: text;
 
 // TODO: create actual pagination links
 
-function renderArticleList (context) {
+function renderArticleList(context) {
   console.log(context)
   return context.group.map(({ node }) => {
     return (
@@ -27,12 +27,12 @@ function renderArticleList (context) {
         <ul>
           <li>written {node.datePublished}</li>
           {node.updatedAt !== node.datePublished &&
-          <li>updated {node.updatedAt}</li>
+            <li>updated {node.updatedAt}</li>
           }
           <li>
-            {node.bodyNode.childMarkdownRemark.timeToRead} { node.bodyNode.childMarkdownRemark.timeToRead > 9
-            ? 'minutes'
-            : 'minute'
+            {node.bodyNode.childMarkdownRemark.timeToRead} {node.bodyNode.childMarkdownRemark.timeToRead > 9
+              ? 'minutes'
+              : 'minute'
             } to read
           </li>
         </ul>

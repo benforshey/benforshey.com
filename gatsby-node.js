@@ -1,16 +1,16 @@
 const {
   paginate,
   createArticlePages,
-  createArticleListPage
-} = require('./gatsby-node-helpers')
+  createArticleListPage,
+} = require('./gatsby-node-helpers');
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+  const { createPage } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
     graphql(`
     {
-      allDatoCmsArticle(sort: {fields: [datePublished], order: ASC}) {
+      allDatoCmsArticle(sort: {fields: [datePublished], order: DESC}) {
         edges {
           node {
             model {
@@ -51,13 +51,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
     }
     `).then(({ data }) => {
-      const articles = data.allDatoCmsArticle.edges
-      const paginatedArticles = paginate(articles)
+      const articles = data.allDatoCmsArticle.edges;
+      const paginatedArticles = paginate(articles);
 
-      createArticleListPage(createPage, paginatedArticles)
-      createArticlePages(createPage, articles)
+      createArticleListPage(createPage, paginatedArticles);
+      createArticlePages(createPage, articles);
 
-      resolve()
-    })
-  })
-}
+      resolve();
+    });
+  });
+};

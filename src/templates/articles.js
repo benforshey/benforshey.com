@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
@@ -17,7 +18,6 @@ grid-column: text;
 // TODO: create actual pagination links
 
 function renderArticleList(context) {
-  console.log(context);
   return context.group.map(({ node }) => (
     <Article key={node.slug}>
       <h2>
@@ -41,7 +41,7 @@ function renderArticleList(context) {
           to={`${context.slugPrefix}${node.slug}`}
           aria-label={`Continue reading: ${node.title}`}
         >Read this Article
-         </Link>}
+        </Link>}
       </div>
     </Article>
   ));
@@ -65,5 +65,11 @@ const CraftListTemplate = ({ pathContext }) => (
     {renderArticleList(pathContext)}
   </Main>
 );
+
+CraftListTemplate.propTypes = {
+  pathContext: PropTypes.shape({
+    datoCmsSite: PropTypes.object,
+  }).isRequired,
+};
 
 export default CraftListTemplate;

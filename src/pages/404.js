@@ -1,21 +1,21 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import Button from '../components/button'
+import React from 'react';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
+import Button from '../components/button';
 
 const Main = styled.main`
-grid-column: content;
+grid-column: gutter;
 grid-row: content;
-`
+`;
 
 const Form = styled.form`
 padding: 1em 4vw;
-`
+`;
 
 const FormGroup = styled.p`
 margin: 1em 0 2em;
 position: relative;
-`
+`;
 
 const Input = styled.input`
 background: none;
@@ -40,7 +40,7 @@ width: 100%;
 &:valid + label {
   transform: translateY(-1.25em);
 }
-`
+`;
 
 const Label = styled.label`
 font-family: 'Source Sans Pro', 'Arial', sans-serif;
@@ -50,7 +50,7 @@ position: absolute;
 top: 0;
 transition: transform .2s ease-out;
 user-select: none;
-`
+`;
 
 const Hint = styled.span`
 display: block;
@@ -58,44 +58,44 @@ font-size: .875em;
 font-style: italic;
 margin-top: .25em;
 user-selec: none;
-`
+`;
 
-const NotFoundPage = ({ data }) => {
-  function handleSubmit (e) {
-    e.preventDefault()
+const NotFoundPage = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    const form = e.target
-    const search = form.querySelector('#search')
+    const form = e.target;
+    const search = form.querySelector('#search');
 
-    search.value = `site:https://www.benforshey.com ${search.value}`
-    return form.submit()
+    search.value = `site:https://www.benforshey.com ${search.value}`;
+    return form.submit();
   }
 
   return (
     <Main>
       <Helmet>
         <title>404 | Ben Forshey</title>
-        <meta name='description' content='Page not found. Let&rsquo;s find it.' />
+        <meta name="description" content="Page not found. Let&rsquo;s find it." />
       </Helmet>
       <h1>Page Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist. We're not quite sure why this happened, but let&rsquo;s try to get you where you want to be!</p>
+      <p>You just hit a route that doesn&rsquo;t exist. We&rsquo;re not quite sure why this happened, but let&rsquo;s try to get you where you want to be!</p>
       <p>You can use the search feature below to (hopefully) find what you were looking for on this website. Please feel free to contact us using the information at the bottom of the page.</p>
       <Form
-        id='form'
-        action='https://google.com/search'
-        target='_blank'
-        method='get'
+        id="form"
+        action="https://google.com/search"
+        target="_blank"
+        method="get"
         onSubmit={handleSubmit}
       >
         <FormGroup>
-          <Input id='search' name='q' type='text' autoComplete='off' required />
-          <Label htmlFor='search'>Search Site</Label>
+          <Input id="search" name="q" type="text" autoComplete="off" required />
+          <Label htmlFor="search">Search Site</Label>
           <Hint >What are you searching for?</Hint>
         </FormGroup>
-        <Button type='submit' primary text='Find It!' />
+        <Button type="submit" primary text="Find It!" />
       </Form>
     </Main>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

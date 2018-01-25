@@ -1,15 +1,15 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { HelmetDatoCms } from 'gatsby-source-datocms'
-import styled from 'styled-components'
-import { rakishRotation, fadePopIn } from '../css/keyframes'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
+import styled from 'styled-components';
+import { rakishRotation, fadePopIn } from '../css/keyframes';
 
 const Main = styled.main`
 display: grid;
 grid-column: gutter;
 grid-row: content;
 grid-template-columns: [left-start] minmax(1vw, 1fr) [left-end text-start] minmax(1vw, 42em) [text-end right-start] minmax(1vw, 1fr) [right-end];
-`
+`;
 
 const Bio = styled.section`
 margin-top: 1.5em;
@@ -24,12 +24,12 @@ grid-column: text;
 h2 {
   margin-top: 0;
 }
-`
+`;
 
 const Image = styled.img`
 animation: .3s cubic-bezier(.25, .25, 0, 1.5) .2s forwards ${rakishRotation};
 width: 100%;
-`
+`;
 
 const ImageContainer = styled.div`
 animation: .2s cubic-bezier(0, 1, .2, 1) forwards ${fadePopIn};
@@ -50,7 +50,7 @@ transform: scale(.8);
 width: calc(5em + 15vw);
 max-width: calc(21.875rem + 1vw);
 max-height: calc(21.875rem + 1vw);
-`
+`;
 
 const Now = styled.article`
 display: grid;
@@ -78,22 +78,21 @@ li > p {
   margin-bottom: 0;
   font-weight: 400;
 }
-`
+`;
 
 const Work = styled.section`
 
-`
+`;
 
 const Read = styled.section`
 
-`
+`;
 
-const IndexPage = ({ data: { about } }) => {
-  return (
-    <Main>
-      <HelmetDatoCms seo={about.seoMetaTags} />
-      <Helmet>
-        <script type='application/ld+json'>{`
+const IndexPage = ({ data: { about } }) => (
+  <Main>
+    <HelmetDatoCms seo={about.seoMetaTags} />
+    <Helmet>
+      <script type="application/ld+json">{`
           {
             "@context": "http://schema.org",
             "@type": "WebSite",
@@ -102,42 +101,42 @@ const IndexPage = ({ data: { about } }) => {
             "description": "${about.seo.description}",
             "image": "${about.seo.image.url}"
           }
-        `}</script>
-      </Helmet>
-      <Bio>
-        <ImageContainer>
-          <Image src={about.img.sizes.src} srcSet={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
-        </ImageContainer>
-        <h2>About Me, Professionally</h2>
+        `}
+      </script>
+    </Helmet>
+    <Bio>
+      <ImageContainer>
+        <Image src={about.img.sizes.src} srcSet={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
+      </ImageContainer>
+      <h2>About Me, Professionally</h2>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: about.bio.childMarkdownRemark.html,
+        }}
+      />
+    </Bio>
+    <Now>
+      <Work>
+        <h2>What I&rsquo;m Doing</h2>
         <div
           dangerouslySetInnerHTML={{
-            __html: about.bio.childMarkdownRemark.html
+            __html: about.workNode.childMarkdownRemark.html,
           }}
         />
-      </Bio>
-      <Now>
-        <Work>
-          <h2>What I&rsquo;m Doing</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: about.workNode.childMarkdownRemark.html
-            }}
-          />
-        </Work>
-        <Read>
-          <h2>What I&rsquo;m Reading</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: about.readNode.childMarkdownRemark.html
-            }}
-          />
-        </Read>
-      </Now>
-    </Main>
-  )
-}
+      </Work>
+      <Read>
+        <h2>What I&rsquo;m Reading</h2>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: about.readNode.childMarkdownRemark.html,
+          }}
+        />
+      </Read>
+    </Now>
+  </Main>
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
 query IndexPageQuery {
@@ -189,4 +188,4 @@ query IndexPageQuery {
 
   }
 }
-`
+`;

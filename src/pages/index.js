@@ -106,7 +106,12 @@ const IndexPage = ({ data: { about } }) => (
     </Helmet>
     <Bio>
       <ImageContainer>
-        <Image src={about.img.sizes.src} srcSet={about.img.sizes.srcSet} sizes={about.img.sizes.sizes} alt={about.img.alt} />
+        <Image
+          src={about.img.sizes.src}
+          srcSet={about.img.sizes.srcSet}
+          sizes={about.img.sizes.sizes}
+          alt={about.img.alt}
+        />
       </ImageContainer>
       <h2>About Me, Professionally</h2>
       <div

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
+// import { HelmetDatoCms } from 'gatsby-source-datocms';
 import styled from 'styled-components';
 
 import 'typeface-fira-mono/index.css';
@@ -57,7 +57,7 @@ const ArticleTemplate = ({ data, pathContext }) => {
 
   return (
     <Main>
-      <HelmetDatoCms seo={content.seoMetaTags} />
+      {/* <HelmetDatoCms seo={content.seoMetaTags} /> */}
       <Helmet>
         <script type="application/ld+json">{`
           {

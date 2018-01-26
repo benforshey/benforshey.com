@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { HelmetDatoCms } from 'gatsby-source-datocms';
+// import { HelmetDatoCms } from 'gatsby-source-datocms';
 import styled from 'styled-components';
 import { rakishRotation, fadePopIn } from '../css/keyframes';
 
@@ -90,7 +90,7 @@ const Read = styled.section`
 
 const IndexPage = ({ data: { about } }) => (
   <Main>
-    <HelmetDatoCms seo={about.seoMetaTags} />
+    {/* <HelmetDatoCms seo={about.seoMetaTags} /> */}
     <Helmet>
       <script type="application/ld+json">{`
           {

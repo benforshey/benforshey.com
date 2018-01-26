@@ -20,7 +20,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-prismjs": "1.2.12",
     "gatsby-remark-smartypants": "1.4.10",
-    "gatsby-source-datocms": "1.0.17",
+    "gatsby-source-datocms": "1.0.16",
     "gatsby-transformer-remark": "1.7.29",
     "normalize.css": "7.0.0",
     "prop-types": "15.6.0",

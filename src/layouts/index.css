@@ -91,6 +91,13 @@ a:focus::before {
     transform: scale(1);
 }
 
+blockquote {
+    background: #fff;
+    border-left: .125em solid hsla(52, 100%, 65%, 1);
+    font-size: .875em;
+    padding: .25em 1em;
+}
+
 @media screen and (min-width: 25em) {
     body {
       line-height: 1.4;
